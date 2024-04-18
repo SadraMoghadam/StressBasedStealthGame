@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4496e11cd352468987a2f39fe2cc861a, type: 3}
+  m_Name: AudioConfig
+  m_EditorClassIdentifier: 
+  openDoor: {fileID: 8300000, guid: 8070a79f1bcc52e4498ab1dfe678a976, type: 3}
+  doorUnlocked: {fileID: 8300000, guid: 62391ec7a61766b478a4cf6a8d311d2d, type: 3}
+  doorLocked: {fileID: 8300000, guid: 87d6fc7d89926ba41877efe01c6cfd23, type: 3}
+  doorBoom: {fileID: 8300000, guid: 3ba762dd72097a34a9d4528cb3f28a91, type: 3}
+  backgroundAudioNoEnemies: {fileID: 8300000, guid: c5f53a7b733f8e346affab84161d3328, type: 3}
+  backgroundAudioWithEnemies: {fileID: 8300000, guid: 448436309bd555b4a8366c4277416ccc, type: 3}
+  replenishOxygen: {fileID: 8300000, guid: 0d818418301456c4fac1283adfad59f8, type: 3}
+  emptyTank: {fileID: 8300000, guid: df0de473fcfa6614b9ad75179ed1d400, type: 3}
+  gunShoot: {fileID: 8300000, guid: f9dc8d9847657423fa659c4a60acf0c6, type: 3}
+  noAmmo: {fileID: 8300000, guid: df0de473fcfa6614b9ad75179ed1d400, type: 3}
+  reload: {fileID: 8300000, guid: 0eb94d1926a8a524497c2580cf8228ff, type: 3}
+  gettingHit:
+  - {fileID: 8300000, guid: 3ffd1d41f379e794ba9f485400590b15, type: 3}
+  - {fileID: 8300000, guid: a9ade4ced905db74aabf3bc3efbf47d2, type: 3}
+  - {fileID: 8300000, guid: ef129366a87b34a488ea07ab1f9c61ac, type: 3}
+  footsteps:
+  - {fileID: 8300000, guid: 5e265270fb85126479eef52d8fce3b08, type: 3}
+  - {fileID: 8300000, guid: 3701a5fdf99882f40bc00eb9053eec92, type: 3}
+  - {fileID: 8300000, guid: 2f949b40b7283404099a802630fb2077, type: 3}
+  - {fileID: 8300000, guid: dfff2b3c7dfb43c419592789f0a6ab81, type: 3}
+  - {fileID: 8300000, guid: 812100e3982e56842adb6ba5be867b7a, type: 3}
+  - {fileID: 8300000, guid: 83c58d64f2e240c41b1f2c2885b253a6, type: 3}
+  - {fileID: 8300000, guid: 3610d597db7918e44906d575bd074616, type: 3}
+  - {fileID: 8300000, guid: 149e8ca9df68d744e9722158daa78ab1, type: 3}
+  - {fileID: 8300000, guid: d25a8335420d09f43bedf446e2deffa0, type: 3}
+  - {fileID: 8300000, guid: cb111f071b2e63844afba5ac99aceb2b, type: 3}
+  - {fileID: 8300000, guid: 2c32dcddf9cd3a944a54728c2c878557, type: 3}
+  - {fileID: 8300000, guid: 2705e9a452d315940a37bf3403ce5927, type: 3}
+  - {fileID: 8300000, guid: e80de9a8752d20e4d97ab928d318adb3, type: 3}
+  - {fileID: 8300000, guid: 4290a2df9f7c8ee4fbe7fee539c5bf30, type: 3}
+  - {fileID: 8300000, guid: 63218441cc62b42499a5df11d6393821, type: 3}
+  noOxygen: {fileID: 8300000, guid: 952f66affaa690b4da65f07f599de8bd, type: 3}
+  lowLife: {fileID: 8300000, guid: f8d4fe4d7939c2f4e802d9fa91303297, type: 3}
+  crackPuzzleCorrect: {fileID: 8300000, guid: 62391ec7a61766b478a4cf6a8d311d2d, type: 3}
+  crackPuzzleWrong: {fileID: 8300000, guid: 87d6fc7d89926ba41877efe01c6cfd23, type: 3}
