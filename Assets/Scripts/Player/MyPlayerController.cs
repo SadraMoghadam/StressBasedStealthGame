@@ -148,6 +148,19 @@ public class MyPlayerController : MonoBehaviour
     /// Rotation defaults to secondary thumbstick. You can allow either here. Note that this won't behave well if EnableLinearMovement is true.
     /// </summary>
     public bool RotationEitherThumbstick = false;
+    
+    /// <summary>
+    /// Set the relative offset translation of head poses
+    /// </summary>
+    [SerializeField]
+    [Tooltip("Set the relative offset translation of head poses")]
+    private Vector3 headPoseRelativeOffsetTranslation;
+
+    [SerializeField]
+    private Transform headObjectTransform;
+    
+    [SerializeField]
+    private float crouchHeightDifference;
 
     protected CharacterController Controller = null;
     protected OVRCameraRig CameraRig = null;
@@ -200,6 +213,12 @@ public class MyPlayerController : MonoBehaviour
         else
             CameraRig = CameraRigs[0];
 
+        if (headObjectTransform == null)
+        {
+            headObjectTransform = GetComponentInChildren<Transform>();
+        }
+
+        headObjectTransform.localPosition = headPoseRelativeOffsetTranslation;
         InitialYRotation = transform.rotation.eulerAngles.y;
     }
 
@@ -354,6 +373,7 @@ public class MyPlayerController : MonoBehaviour
             bool moveLeft = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow);
             bool moveRight = Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow);
             bool moveBack = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
+            bool crouch = Input.GetKey(KeyCode.C);
 
             bool dpad_move = false;
 
@@ -367,6 +387,11 @@ public class MyPlayerController : MonoBehaviour
             {
                 moveBack = true;
                 dpad_move = true;
+            }
+
+            if (OVRInput.Get(OVRInput.Button.Two)) // B button
+            {
+                crouch = true;
             }
 
             MoveScale = 1.0f;
@@ -403,6 +428,15 @@ public class MyPlayerController : MonoBehaviour
                 MoveThrottle += ort * (transform.lossyScale.x * moveInfluence * BackAndSideDampen * Vector3.right);
 
             moveInfluence = Acceleration * 0.1f * MoveScale * MoveScaleMultiplier;
+
+            if (crouch)
+            {
+                Crouch();
+            }
+            else
+            {
+                Stand();
+            }
 
 #if !UNITY_ANDROID // LeftTrigger not avail on Android game pad
             moveInfluence *= 1.0f + OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger);
@@ -553,6 +587,23 @@ public class MyPlayerController : MonoBehaviour
         return true;
     }
 
+    /// <summary>
+    /// Crouch after pressing a button
+    /// </summary>
+    public void Crouch()
+    {
+        headObjectTransform.localPosition = headPoseRelativeOffsetTranslation + Vector3.down * crouchHeightDifference;
+    }
+    
+    
+    /// <summary>
+    /// Stand while not holding the crouch button
+    /// </summary>
+    public void Stand()
+    {
+        headObjectTransform.localPosition = headPoseRelativeOffsetTranslation;
+    }
+    
     /// <summary>
     /// Stop this instance.
     /// </summary>
